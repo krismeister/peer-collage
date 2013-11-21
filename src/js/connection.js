@@ -6,7 +6,19 @@ function peerConnection(myId, connectToId,onRecieved){
         connection;
 
     function init(){
-        peer = new Peer(myId,{key: PEER_JS_KEY});
+
+        var options = {
+            host: '://192.168.60.89',
+            port:9000,
+            debug:true
+        };
+
+//        var options = {
+//            key: PEER_JS_KEY,
+//            debug:true
+//        };
+
+        peer = new Peer(myId,options);
         peer.on('open', onOpen);
     }
 
