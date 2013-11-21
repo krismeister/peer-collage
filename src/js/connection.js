@@ -8,7 +8,7 @@ function peerConnection(myId, connectToId,onRecieved){
     function init(){
 
         var options = {
-            host: '://192.168.60.89',
+            host: '192.168.60.89',
             port:9000,
             debug:true
         };

@@ -1,6 +1,6 @@
 var peerConnection;
 $(function(){
-    peerConnection = new peerConnection('client5', 'master5',onRecieved);
+    peerConnection = new peerConnection('client7', 'master7',onRecieved);
 
     function onRecieved(data){
         console.log('data = ' + data);
