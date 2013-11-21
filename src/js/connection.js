@@ -1,25 +1,32 @@
 var PEER_JS_KEY = 'd1ex4hq2p3bit3xr';
 
-function peerConnection(myId, connectToId,onRecieved){
+function peerConnection(myId, connectToId,onReceived){
     var peer,
         peerId,
         connection;
 
     function init(){
 
-        var options = {
-            host: '192.168.60.89',
-            port:9000,
-            debug:true
-        };
-
 //        var options = {
-//            key: PEER_JS_KEY,
+//            host: '192.168.60.89',
+//            port:9000,
 //            debug:true
 //        };
 
+        var options = {
+            key: PEER_JS_KEY,
+            debug:true,
+            label: 'chat',
+            serialization: 'none',
+            reliable: false,
+            metadata: {message: 'hi i want to chat with you!'}
+        };
+
         peer = new Peer(myId,options);
         peer.on('open', onOpen);
+
+        //this is a passive listener if others want to connect to me.
+        peer.on('connection',onConnection);
     }
 
     function onOpen(id){
@@ -31,9 +38,17 @@ function peerConnection(myId, connectToId,onRecieved){
 
         //we need to decide how to connect to another peer by name.
 
-        //i want to connect to 'client'
-        peer.connect(connectToId);
-        peer.on('connection', onConnection);
+        //if connectToId was passed then we want to activly connect.
+        if(connectToId){
+            console.log('trying to make connection');
+            var c = peer.connect(connectToId);
+            //listen to connectRequest
+            console.log('listening to connection request');
+            c.on('open', function() {
+                onConnection(c);
+            });
+            c.on('error', function(err) { alert(err); });
+        }
     }
 
     function onConnection(conn){
@@ -48,10 +63,11 @@ function peerConnection(myId, connectToId,onRecieved){
 
     function onDataRecieved(data){
         console.log('Received', data);
-        if(onRecieved){
-            onRecieved(data);
+        if(onReceived){
+            onReceived(data);
         }
     }
+
     function send(data){
         connection.send(data);
     }
