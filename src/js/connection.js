@@ -7,25 +7,29 @@ function peerConnection(myId, connectToId,onRecieved){
 
     function init(){
         peer = new Peer(myId,{key: PEER_JS_KEY});
-        peer.on('open', function(id) {
-            console.log('My peer ID is: ' + id);
-            peerId = id;
-            $('h1').text(peerId);
+        peer.on('open', onOpen);
+    }
 
-            //we need to decide how to connect to another peer by name.
+    function onOpen(id){
 
+        console.log('My peer ID is: ' + id);
 
-            //i want to connect to 'client'
-            peer.connect(connectToId);
-            peer.on('connection', function(conn) {
-                connection = conn;
-                console.log('i got a connection');
+        peerId = id;
+        $('h1').text(peerId);
 
-                connection.on('data', onDataRecieved);
-                connection.send('Hi from class over p2p!');
+        //we need to decide how to connect to another peer by name.
 
-            });
-        });
+        //i want to connect to 'client'
+        peer.connect(connectToId);
+        peer.on('connection', onConnection);
+    }
+
+    function onConnection(conn){
+        connection = conn;
+        console.log('i got a connection');
+
+        connection.on('data', onDataRecieved);
+        connection.send('Hi from class over p2p!');
     }
 
 
