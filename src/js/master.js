@@ -1,8 +1,16 @@
 var peerConnection;
 $(function(){
-    peerConnection = new peerConnection('master17', null,onReceived);
+	
+	var connectionOptions = {
+//		onConnectionReady: onConnectionReady,
+		onDataRecieved : onDataRecieved
+	};
+	
+	peerConnection = new peerConnection('master', null,connectionOptions);
 
-    function onReceived(data){
+    function onDataRecieved(data){
         console.log('data = ' + data);
+		var img = "<img src='"+ data +"' + />";
+		$('body').append(img);
     }
 });

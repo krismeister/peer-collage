@@ -1,9 +1,16 @@
 var PEER_JS_KEY = 'd1ex4hq2p3bit3xr';
 
-function peerConnection(myId, connectToId,onReceived){
+function peerConnection(myId, connectToId, options){
     var peer,
         peerId,
-        connection;
+        connection,
+		o = {
+			onConnectionReady: function(){},
+			onDataRecieved : function(){}
+		};
+	
+	o = $.extend(true,o,options);
+		
 
     function init(){
 
@@ -13,16 +20,19 @@ function peerConnection(myId, connectToId,onReceived){
 //            debug:true
 //        };
 
-        var options = {
+        var connectionOptions = {
             key: PEER_JS_KEY,
             debug:true,
             label: 'chat',
-            serialization: 'none',
+            serialization: 'binary',
             reliable: false,
             metadata: {message: 'hi i want to chat with you!'}
         };
-
-        peer = new Peer(myId,options);
+		if(myId){
+			peer = new Peer(myId,connectionOptions);
+		}else{
+			peer = new Peer(connectionOptions);
+		}
         peer.on('open', onOpen);
 
         //this is a passive listener if others want to connect to me.
@@ -37,7 +47,7 @@ function peerConnection(myId, connectToId,onReceived){
         $('h1').text(peerId);
 
         //we need to decide how to connect to another peer by name.
-
+		if(options)
         //if connectToId was passed then we want to activly connect.
         if(connectToId){
             console.log('trying to make connection');
@@ -53,19 +63,14 @@ function peerConnection(myId, connectToId,onReceived){
 
     function onConnection(conn){
         connection = conn;
-        console.log('i got a connection');
-
         connection.on('data', onDataRecieved);
-        connection.send('Hi from class over p2p!');
+		o.onConnectionReady();
     }
 
 
 
     function onDataRecieved(data){
-        console.log('Received', data);
-        if(onReceived){
-            onReceived(data);
-        }
+		o.onDataRecieved();
     }
 
     function send(data){
