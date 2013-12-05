@@ -83,7 +83,8 @@ module.exports = function(grunt) {
                 options: {
                     ignores: [
 						'src/js/libs/**/*.js'
-                    ]
+                    ],
+					'smarttabs' : true
                 }
             }
         }

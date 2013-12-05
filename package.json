@@ -2,9 +2,10 @@
   "name": "peer-to-peer-test",
   "version": "0.0.2",
   "description": "creating a peer to peer collage app",
-  "main": "PeerToPeerCollage.js",
+  "main": "Main.js",
   "dependencies": {
 	"peer":"~0.2.1",
+	"paperboy":"~0.0.5",
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-watch": "~0.5.2",

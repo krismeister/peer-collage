@@ -37,6 +37,7 @@
 	function start(){
 		Build.bin(function(){
 			console.log('build complete, starting server');
+			Server.start('./bin/',9000);
 		});
 	}
 
