@@ -28,7 +28,13 @@ module.exports = function(grunt) {
                 cwd: 'src',
                 src: '*.json',
                 dest: 'bin-debug/'
-            }
+            },
+			bin:{
+				expand: true,
+                cwd: 'bin-debug/',
+                src: '**/*',
+                dest: 'bin'
+			}
         },
         less: {
             binDebug: {
@@ -70,7 +76,8 @@ module.exports = function(grunt) {
                 files: {
                     src: [
                         'Gruntfile.js',
-                        'src/js/**/*.js'
+                        'src/js/**/*.js',
+                        'server/**/*.js'
                     ]
                 },
                 options: {
@@ -106,5 +113,9 @@ module.exports = function(grunt) {
         'copy:html',
         'copy:json'//,
         //'nodewebkit'
+    ]);
+    grunt.registerTask('deploy', [
+        'default',
+		'copy:bin'
     ]);
 };
