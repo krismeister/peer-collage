@@ -1,6 +1,7 @@
 (function () {
 	"use strict";
 	var Server = require('./modules/Server');
+	var Build = require('./modules/Build');
 
 	var args = [],
 		command;
@@ -34,21 +35,8 @@
 	}
 
 	function start(){
-		console.log('start');
-	
-		var sys = require('sys');
-		var spawn = require('child_process').spawn;
-		var spawnedChild = spawn("grunt", ['deploy']);
-	
-		spawnedChild.stdout.on('data', function (data) {
-			console.log('stdout: ' + data);
-		});
-	
-		spawnedChild.on('close', function (code,signal) {
-			console.log('Grunt completed code = ' + code );
-			if(code === 0){
-				console.log('Grunt Complete, starting server');	
-			}
+		Build.bin(function(){
+			console.log('build complete, starting server');
 		});
 	}
 
