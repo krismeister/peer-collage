@@ -17,7 +17,12 @@ A peer to peer connection will be setup between the 2 and the users will start s
 Starting the Servers
 --------------------
 
-Start the Peer.js server and the http server by running this on the command line.
+Start the Peer.js server by running this command from the terminal:
+``sh
+node main startPeerJs
+``
+
+Then open another terminal and start the http server by running this command.
 ``sh
 node main start
 ``

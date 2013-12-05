@@ -33,8 +33,28 @@
 
 		console.log('paperboy on his round at http://localhost:' + port);
 	}
+	
+	function startPeerJs(){
+		var PeerServer = require('peer').PeerServer;
+		var server = new PeerServer({ 
+				port: 9000 ,
+				debug: true
+			});	
+			
+		// var sys = require('sys');
+		// var spawn = require('child_process').spawn;
+		// var spawnedChild = spawn("node peerjs", ['--port 9000', '--debug true']);
+		// 
+		// spawnedChild.stdout.on('data', function (data) {
+		// 	console.log('stdout: ' + data);
+		// });
+		// spawnedChild.stdout.on('error', function (data) {
+		// 	console.log('stdout: ' + data);
+		// });
+	}
 
 	module.exports = {
-		start:start
+		start:start,
+		startPeerJs:startPeerJs
 	};
 }());

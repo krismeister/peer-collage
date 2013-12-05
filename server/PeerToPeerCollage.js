@@ -37,8 +37,13 @@
 	function start(){
 		Build.bin(function(){
 			console.log('build complete, starting server');
-			Server.start('./bin/',9000);
+			Server.start('./bin/',9001);
 		});
+	}
+	
+	function startPeerJs(){
+		console.log('starting peerjs server');
+		Server.startPeerJs();
 	}
 
 	function testArgs(){
@@ -47,7 +52,8 @@
 	}
 
 	module.exports = {
-		start : start
+		start : start,
+		startPeerJs : startPeerJs
 	};
 
 	init();
