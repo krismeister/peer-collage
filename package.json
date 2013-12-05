@@ -4,7 +4,7 @@
   "description": "creating a peer to peer collage app",
   "main": "Main.js",
   "dependencies": {
-	"peer":"~0.2.1",
+	"peer":"https://github.com/peers/peerjs-server/tarball/5d358ce71ff22adb146e13412a67c0700ed52b9e",
 	"paperboy":"~0.0.5",
     "grunt": "~0.4.1",
     "grunt-contrib-copy": "~0.4.1",

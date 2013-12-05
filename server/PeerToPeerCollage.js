@@ -41,6 +41,13 @@
 		});
 	}
 	
+	function startDebug(){
+		Build.bin(function(){
+			console.log('build complete, starting server');
+			Server.start('./bin-debug/',9002);
+		});
+	}
+	
 	function startPeerJs(){
 		console.log('starting peerjs server');
 		Server.startPeerJs();
@@ -53,6 +60,7 @@
 
 	module.exports = {
 		start : start,
+		startDebug : startDebug,
 		startPeerJs : startPeerJs
 	};
 
