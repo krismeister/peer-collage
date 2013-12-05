@@ -9,8 +9,6 @@
     "grunt-contrib-copy": "~0.4.1",
     "grunt-contrib-watch": "~0.5.2",
     "grunt-contrib-less": "~0.7.0",
-    "grunt-zip" : "~0.10.0",
-    "grunt-contrib-jshint": "~0.6.4",
-    "grunt-node-webkit-builder" : "~0.1.11"
+    "grunt-contrib-jshint": "~0.6.4"
   }
 }

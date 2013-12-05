@@ -82,20 +82,11 @@ module.exports = function(grunt) {
                 },
                 options: {
                     ignores: [
+						'src/js/libs/**/*.js'
                     ]
                 }
             }
         }
-//        nodewebkit: {
-//            options: {
-//                build_dir: './bin', // Where the build version of my node-webkit app is saved
-//                mac: true, // We want to build it for mac
-//                win: true, // We want to build it for win
-//                linux32: false, // We don't need linux32
-//                linux64: false // We don't need linux64
-//            },
-//            src: ['./bin-debug/**/*'] // Your node-wekit app
-//        }
 
     });
 
@@ -103,7 +94,6 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-jshint');
-    //grunt.loadNpmTasks('grunt-node-webkit-builder');
 
     grunt.registerTask('default', [
         'jshint',
@@ -111,8 +101,7 @@ module.exports = function(grunt) {
         'copy:js',
         'copy:images',
         'copy:html',
-        'copy:json'//,
-        //'nodewebkit'
+        'copy:json'
     ]);
     grunt.registerTask('deploy', [
         'default',
