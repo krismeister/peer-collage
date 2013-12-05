@@ -1,6 +1,8 @@
 var peerConnection;
 $(function(){
 	
+	var $imgContainer = $('#imgContainer');
+	
 	var connectionOptions = {
 //		onConnectionReady: onConnectionReady,
 		onDataRecieved : onDataRecieved
@@ -11,6 +13,7 @@ $(function(){
     function onDataRecieved(data){
         console.log('data = ' + data);
 		var img = "<img src='"+ data +"' + />";
-		$('body').append(img);
+		
+		$imgContainer.append(img);
     }
 });

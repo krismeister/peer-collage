@@ -30,11 +30,13 @@ $(function(){
 			navigator.getUserMedia(videoObj, function(stream) {
 				video.src = stream;
 				video.play();
+			   $('body').addClass('camera-view');
 			}, errBack);
 		} else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
 			navigator.webkitGetUserMedia(videoObj, function(stream){
 				video.src = window.webkitURL.createObjectURL(stream);
 				video.play();
+			   $('body').addClass('camera-view');
 			}, errBack);
 		}
 		

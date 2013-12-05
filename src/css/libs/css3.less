@@ -1,0 +1,165 @@
+
+/* default gradient 
+ * .gradient(
+ *   non-css3-bg    default : #F5F5F5, 
+ *   bottom-color   default : #f6f6f6,
+ *   end-color      default : #e3e3e3
+ *   start-percent  default : 0%
+ *   end-percent    default : 100%
+ * )
+ * 
+ * */
+.transition (@range: all, @time: 0.2s, @ease: ease-out, @delay : 0) {
+    -webkit-transition: @range @time @ease @delay;
+    -moz-transition: @range @time @ease @delay;
+    -o-transition: @range @time @ease @delay;
+    transition: @range @time @ease @delay;
+}
+
+.gradient(@non-css3-bg: #F5F5F5, @start: #f6f6f6, @stop: #e3e3e3, @startPercent: 0%, @endPercent: 100%) {
+  background: @non-css3-bg;
+  background: -moz-linear-gradient(top,  @start @startPercent, @stop @endPercent);
+  background: -webkit-gradient(linear, top, bottom, color-stop(@startPercent,@start), color-stop(@endPercent,@stop));
+  background: -webkit-linear-gradient(top,  @start @startPercent, @stop @endPercent);
+  background: -o-linear-gradient(top, @start @startPercent, @stop @endPercent);
+  background: -ms-linear-gradient(top, @start @startPercent, @stop @endPercent);
+  background: linear-gradient(top,  @start @startPercent, @stop @endPercent);
+  -pie-background: linear-gradient(top, @start @startPercent, @stop @endPercent);
+}
+
+//this pulled from:
+//https://code.google.com/p/lessins/source/browse/trunk/bundles/gradient.less?r=4
+.gradient-three-colors(@non-css3-bg: #7a43b6,@startColor: #00b3ee, @midColor: #7a43b6, @colorStop: 50%, @endColor: #c3325f) {
+  background: @non-css3-bg;
+  background:-moz-linear-gradient(top, @startColor 0%, @midColor @colorStop, @endColor 100%);
+  background:-webkit-gradient(linear, top, bottom, color-stop(0%,@startColor), color-stop(@colorStop,@midColor),color-stop(100%,@endColor));
+  background:-webkit-linear-gradient(top, @startColor 0%, @midColor @colorStop, @endColor 100%);
+  background:linear-gradient(top, @startColor 0%, @midColor @colorStop, @endColor 100%);
+  background:-o-linear-gradient(top, @startColor 0%, @midColor @colorStop, @endColor 100%);
+  background:-ms-linear-gradient(top, @startColor 0%, @midColor @colorStop, @endColor 100%);
+  -pie-background:linear-gradient(top, @startColor 0%, @midColor @colorStop, @endColor 100%);
+}
+
+/* 
+ * START GENERAL RULES
+ * these are from : http://lesselements.com/
+ *  
+ */
+.bordered(@top-color: #EEE, @right-color: #EEE, @bottom-color: #EEE, @left-color: #EEE) {
+  border-top: solid 1px @top-color;
+  border-left: solid 1px @left-color;
+  border-right: solid 1px @right-color;
+  border-bottom: solid 1px @bottom-color;
+}
+.rgba-shadow(@x-axis: 1px, @y-axis: 1px, @blur: 2px, @alpha: 0.1, @shadow-color: #000) {
+  html.rgba & {
+    -webkit-box-shadow: @x-axis @y-axis @blur rgba(red(@shadow-color), green(@shadow-color), blue(@shadow-color), @alpha);
+    -moz-box-shadow: @x-axis @y-axis @blur rgba(red(@shadow-color), green(@shadow-color), blue(@shadow-color), @alpha);
+    box-shadow: @x-axis @y-axis @blur rgba(red(@shadow-color), green(@shadow-color), blue(@shadow-color), @alpha);
+  }
+}
+.rgba-shadow-inset(@x-axis: 1px, @y-axis: 1px, @blur: 2px, @alpha: 0.1) {
+  html.rgba & {
+    -webkit-box-shadow:inset @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+    -moz-box-shadow:inset @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+    box-shadow:inset @x-axis @y-axis @blur rgba(0, 0, 0, @alpha);
+  }
+}
+
+.rounded(@radius: 2px) {
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+  border-radius: @radius;
+}
+.border-radius(@topright: 0, @bottomright: 0, @bottomleft: 0, @topleft: 0) {
+  -webkit-border-top-right-radius: @topright;
+  -webkit-border-bottom-right-radius: @bottomright;
+  -webkit-border-bottom-left-radius: @bottomleft;
+  -webkit-border-top-left-radius: @topleft;
+  -moz-border-radius-topright: @topright;
+  -moz-border-radius-bottomright: @bottomright;
+  -moz-border-radius-bottomleft: @bottomleft;
+  -moz-border-radius-topleft: @topleft;
+  border-top-right-radius: @topright;
+  border-bottom-right-radius: @bottomright;
+  border-bottom-left-radius: @bottomleft;
+  border-top-left-radius: @topleft;
+  .background-clip(padding-box);
+}
+.opacity(@opacity: 0.5) {
+  -moz-opacity: @opacity;
+  -khtml-opacity: @opacity;
+  -webkit-opacity: @opacity;
+  opacity: @opacity;
+  @opperc: @opacity * 100;
+  -ms-filter: ~"progid:DXImageTransform.Microsoft.Alpha(opacity=@{opperc})";
+  filter: ~"alpha(opacity=@{opperc})";
+}
+.transform(...) {
+  -webkit-transform: @arguments;
+  -moz-transform: @arguments;
+  -o-transform: @arguments;
+  -ms-transform: @arguments;
+  transform: @arguments;
+}
+.rotation(@deg:5deg){
+  .transform(rotate(@deg));
+}
+.scale(@ratio:1.5){
+  .transform(scale(@ratio));
+}
+.inner-shadow(@horizontal:0, @vertical:1px, @blur:2px, @alpha: 0.4) {
+  -webkit-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  -moz-box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+  box-shadow: inset @horizontal @vertical @blur rgba(0, 0, 0, @alpha);
+}
+.box-shadow(@arguments) {
+  -webkit-box-shadow: @arguments;
+  -moz-box-shadow: @arguments;
+  box-shadow: @arguments;
+}
+.box-sizing(@sizing: border-box) {
+  -ms-box-sizing: @sizing;
+  -moz-box-sizing: @sizing;
+  -webkit-box-sizing: @sizing;
+  box-sizing: @sizing;
+}
+.user-select(@argument: none) {
+  -webkit-user-select: @argument;
+  -moz-user-select: @argument;
+  -ms-user-select: @argument;
+  user-select: @argument;
+}
+.non-draggable(){
+    user-drag: none;
+    -moz-user-select: none;
+    -webkit-user-drag: none;
+}
+.columns(@colwidth: 250px, @colcount: 0, @colgap: 50px, @columnRuleColor: #EEE, @columnRuleStyle: solid, @columnRuleWidth: 1px) {
+  -moz-column-width: @colwidth;
+  -moz-column-count: @colcount;
+  -moz-column-gap: @colgap;
+  -moz-column-rule-color: @columnRuleColor;
+  -moz-column-rule-style: @columnRuleStyle;
+  -moz-column-rule-width: @columnRuleWidth;
+  -webkit-column-width: @colwidth;
+  -webkit-column-count: @colcount;
+  -webkit-column-gap: @colgap;
+  -webkit-column-rule-color: @columnRuleColor;
+  -webkit-column-rule-style: @columnRuleStyle;
+  -webkit-column-rule-width: @columnRuleWidth;
+  column-width: @colwidth;
+  column-count: @colcount;
+  column-gap: @colgap;
+  column-rule-color: @columnRuleColor;
+  column-rule-style: @columnRuleStyle;
+  column-rule-width: @columnRuleWidth;
+}
+.translate(@x:0, @y:0) {
+  .transform(translate(@x, @y));
+}
+.background-clip(@argument: padding-box) {
+  -moz-background-clip: @argument;
+  -webkit-background-clip: @argument;
+  background-clip: @argument;
+}

@@ -1,17 +1,23 @@
 @import "libs/reset";
+@import "libs/css3";
 html,body{
     height:100%;
     position:relative;
     background:#ccc;
-    font:12px/12px Arial;
+    font:12px/16px Arial;
 }
 
 nav{
     height:40px;
-    position:absolute;
-    bottom:0px;
+    position:fixed;
+    bottom:-40px;
     background:#333;
     width:100%;
+	.transition(bottom);
+}
+
+.camera-view nav{
+	bottom:0px;
 }
 
 .simple-button{
@@ -36,4 +42,10 @@ nav{
     right:20px;
     bottom:60px;
     color:#fff;
+}
+
+
+#imgContainer.tiled img{
+	max-width:100px;
+	float:left;
 }
