@@ -67,10 +67,8 @@ function peerConnection(myId, connectToId, options){
 		o.onConnectionReady();
     }
 
-
-
     function onDataRecieved(data){
-		o.onDataRecieved();
+		o.onDataRecieved(data);
     }
 
     function send(data){
