@@ -14,7 +14,7 @@ define([
     connectionId,
     context2d;
     
-  ClientView = Backbone.View.extend({
+  var ClientView = Backbone.View.extend({
       el: $("body"),
       render: function(){
           this.$el.html( viewHtml );

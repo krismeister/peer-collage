@@ -9,7 +9,7 @@ define([
 
   "use strict";
     
-  photoHistory = Backbone.View.extend({
+  var photoHistory = Backbone.View.extend({
       el: $("#last-photos"),
       render: function(){
         // Compile the template using Underscores micro-templating

@@ -13,7 +13,7 @@ define([
     connectionId,
     context2d;
     
-  MasterView = Backbone.View.extend({
+  var MasterView = Backbone.View.extend({
       el: $("body"),
       render: function(){
           this.$el.html( viewHtml );
