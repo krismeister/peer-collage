@@ -23,18 +23,18 @@ module.exports = function(grunt) {
                 src: '**/*.html',
                 dest: 'bin-debug/'
             },
-            json:{
+            sounds:{
                 expand: true,
-                cwd: 'src',
-                src: '*.json',
-                dest: 'bin-debug/'
+                cwd: 'src/sounds/',
+                src: '**/*',
+                dest: 'bin-debug/sounds/'
             },
-			bin:{
-				expand: true,
+			      bin:{
+				        expand: true,
                 cwd: 'bin-debug/',
                 src: '**/*',
                 dest: 'bin'
-			}
+			      }
         },
         less: {
             binDebug: {
@@ -116,7 +116,7 @@ module.exports = function(grunt) {
         'copy:js',
         'copy:images',
         'copy:html',
-        'copy:json'
+        'copy:sounds'
     ]);
     grunt.registerTask('deploy', [
         'jshint:server',

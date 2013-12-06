@@ -15,10 +15,16 @@ body{
   padding-top:20px;
   #last-photos{
    clear:both;
-   overflow-x:auto;
    img{
      float:left;
-  	max-width:150px;
+  	 max-width:150px;
+  	 position:relative;
+     .transition(all);
+   }
+   img.in-fx{
+     .transform(scale(2,2));
+     .opacity();
+     z-index:2;
    }
   }
   video{
@@ -58,7 +64,6 @@ nav{
 	max-width:100px;
 	float:left;
 }
-
 
 #connection-loading{
 	position:absolute;

@@ -29,6 +29,7 @@ define([
          var imageUrl = canvas.toDataURL();
          connectionInstance.send(imageUrl);
          photos.getInstance().add({ src: imageUrl});
+         document.getElementById('shutter-sound').play();
       }
   });
   
