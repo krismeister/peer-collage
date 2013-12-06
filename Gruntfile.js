@@ -76,15 +76,28 @@ module.exports = function(grunt) {
                 files: {
                     src: [
                         'Gruntfile.js',
-                        'src/js/**/*.js',
+                        'src/js/**/*.js'
+                    ]
+                },
+                options: {
+                    ignores: [
+						'src/js/libs/**/*.js'
+                    ],
+                smarttabs : true,
+                "-W099": true, // allowed mixed tabs and spaces
+                }
+            },
+            server: {
+                files: {
+                    src: [
                         'server/**/*.js'
                     ]
                 },
                 options: {
                     ignores: [
-						'src/js/lib/**/*.js'
                     ],
-					'smarttabs' : true
+					          smarttabs : true,
+					          "-W099": true, // allowed mixed tabs and spaces
                 }
             }
         }
@@ -97,7 +110,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
     grunt.registerTask('default', [
-        'jshint',
+        'jshint:src',
         'less:binDebug',
         'copy:js',
         'copy:images',
@@ -105,6 +118,7 @@ module.exports = function(grunt) {
         'copy:json'
     ]);
     grunt.registerTask('deploy', [
+        'jshint:server',
         'default',
 		'copy:bin'
     ]);

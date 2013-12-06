@@ -8,7 +8,7 @@ $(function(){
 		onDataRecieved : onDataRecieved
 	};
 	
-	peerConnection = new peerConnection('master', null,connectionOptions);
+	peerConnection = new peerConnection('master-1', null,connectionOptions);
 
     function onDataRecieved(data){
         console.log('data = ' + data);
