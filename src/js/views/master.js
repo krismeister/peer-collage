@@ -4,11 +4,13 @@ define([
   'underscore',
   'backbone',
   'models/connection',
-  'text!templates/master/main.html'
-], function($, _, Backbone,connection, viewHtml){
+  'text!templates/master/main.html',
+  'views/tilePhotos'
+], function($, _, Backbone,connection, viewHtml, TilePhotosView){
   
   "use strict";
   var view,
+    photosView,
     connectionInstance,
     connectionId,
     context2d;
@@ -34,13 +36,7 @@ define([
   
   function onConnectionReady(){
     view.render();
-    connectionInstance.on("change:recievedData", onDataRecieved);
-  }
-  
-  function onDataRecieved(){
-    var data = connectionInstance.get('recievedData');
-    var img = "<img src='"+ data +"' + />";
-    $('#imgContainer').append(img);
+    photosView = new TilePhotosView();
   }
   
   return {

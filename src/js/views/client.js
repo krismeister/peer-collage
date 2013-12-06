@@ -5,8 +5,9 @@ define([
   'backbone',
   'models/connection',
   'collections/photos',
-  'text!templates/client/main.html'
-], function($, _, Backbone,connection, photos, viewHtml){
+  'text!templates/client/main.html',
+  'views/tilePhotos'
+], function($, _, Backbone,connection, photos, viewHtml,TilePhotosView){
   
   "use strict";
   var view,
@@ -18,10 +19,19 @@ define([
       el: $("body"),
       render: function(){
           this.$el.html( viewHtml );
+          var tiledPhotos = new TilePhotosView();
           startVideo();
       },
       events: {
-          "click #snap": "sendPhoto"
+          "click #snap": "sendPhoto",
+          "click #photo-shoot": "photoShoot"
+      },
+      photoShoot: function(e){
+        _.delay(this.sendPhoto, 500);
+        _.delay(this.sendPhoto, 1500);
+        _.delay(this.sendPhoto, 2500);
+        _.delay(this.sendPhoto, 3500);
+        _.delay(this.sendPhoto, 4500);
       },
       sendPhoto: function( event ){
          context2d.drawImage(video, 0, 0, 640, 480);
@@ -76,9 +86,6 @@ define([
       }, captureError);
     }
     
-    require(['views/photoHistory'], function (PhotoHistory) {
-      var photoHistory = new PhotoHistory();
-    });
   }
   
   

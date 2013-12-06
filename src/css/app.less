@@ -13,20 +13,6 @@ body{
 
 #client{
   padding-top:20px;
-  #last-photos{
-   clear:both;
-   img{
-     float:left;
-  	 max-width:150px;
-  	 position:relative;
-     .transition(all);
-   }
-   img.in-fx{
-     .transform(scale(2,2));
-     .opacity();
-     z-index:2;
-   }
-  }
   video{
     margin:20px auto;
     display:block;
@@ -43,6 +29,21 @@ nav{
     background:#333;
     width:100%;
 	.transition(bottom);
+}
+
+#tiled-photos{
+ clear:both;
+ img{
+   float:left;
+	 max-width:150px;
+	 position:relative;
+   .transition(all);
+ }
+ img.in-fx{
+   .transform(scale(2,2));
+   .opacity();
+   z-index:2;
+ }
 }
 
 .camera-view nav{

@@ -1,11 +1,14 @@
 <div id="client">
 	<video id="video" width="640" height="480" autoplay></video>
 	<canvas id="canvas" width="640" height="480"></canvas>
-	<div id="last-photos"></div>
+	<div id="tiled-photos"></div>
 	<audio id="shutter-sound" autorewind="true">
 		
 	   <source src="sounds/shutter.mp3" type='audio/mpeg; codecs="mp3"'>
 	   <!-- add your fallback solution here -->
 	</audio>
-	<nav><a  id="snap" class="simple-button">Snap Photo</a></nav>
+	<nav>
+		<a id="photo-shoot" class="simple-button">Photo Shoot</a>
+		<a id="snap" class="simple-button">Snap Photo</a>
+	</nav>
 </div>

@@ -2,14 +2,15 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'peer'
-], function($, _, Backbone, Peer){
+  'peer',
+  'collections/photos'
+], function($, _, Backbone, Peer, photos){
   "use strict";
   
   var instance,
     peer;
     
-  var CollageConnection = Backbone.Model.extend({
+  var Connection = Backbone.Model.extend({
     defaults: function() {
       return {
         connectionName : "Unknown",
@@ -67,6 +68,7 @@ define([
   }
 
   function onDataRecieved(data){
+    photos.getInstance().add({ src: data});
     getInstance().set('recievedData',data);
   }
 
@@ -76,7 +78,7 @@ define([
   
   function getInstance(){
     if(!instance){
-      instance = new CollageConnection();
+      instance = new Connection();
     }
     return instance;
   }
