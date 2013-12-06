@@ -14,6 +14,14 @@ localhost:9000/
 
 A peer to peer connection will be setup between the 2 and the users will start streaming photos to the master.
 
+Install Node Package
+--------------------
+
+Install npm:
+``sh
+npm install
+``
+
 Starting the Servers
 --------------------
 
