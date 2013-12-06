@@ -4,6 +4,7 @@ define([
   'backbone',
   'peer'
 ], function($, _, Backbone, Peer){
+//  "use strict";
   
   var instance,
     peer;
@@ -15,7 +16,7 @@ define([
         open :false,
         ready:false,
         peerJsKey : 'd1ex4hq2p3bit3xr',
-        peerJsUrl : 'http://localhost:9000',
+        peerJsUrl : window.location.protocol + "//" + window.location.hostname + ':9000',
         connection : null
       };
     },

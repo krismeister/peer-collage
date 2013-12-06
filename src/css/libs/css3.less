@@ -9,6 +9,11 @@
  * )
  * 
  * */
+
+.radialGradient(@posX:center, @posY:center, @shape:circle, @size:closest-side, @from:white, @to:black){
+    background-image: -webkit-radial-gradient(@posX @posY, @shape @size, @from, @to);
+}
+
 .transition (@range: all, @time: 0.2s, @ease: ease-out, @delay : 0) {
     -webkit-transition: @range @time @ease @delay;
     -moz-transition: @range @time @ease @delay;
