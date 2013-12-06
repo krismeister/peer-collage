@@ -4,7 +4,7 @@ define([
   'backbone',
   'peer'
 ], function($, _, Backbone, Peer){
-//  "use strict";
+  "use strict";
   
   var instance,
     peer;

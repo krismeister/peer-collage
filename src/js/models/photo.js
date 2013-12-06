@@ -2,6 +2,7 @@ define([
   'underscore',
   'backbone'
 ], function(_, Backbone){
+  "use strict";
   var Photo = Backbone.Model.extend({
     // Default attributes for the CollageImage
     defaults: function() {

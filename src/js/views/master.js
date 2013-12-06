@@ -7,6 +7,7 @@ define([
   'text!templates/master/main.html'
 ], function($, _, Backbone,connection, viewHtml){
   
+  "use strict";
   var view,
     connectionInstance,
     connectionId,

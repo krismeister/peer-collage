@@ -8,6 +8,7 @@ define([
   'text!templates/client/main.html'
 ], function($, _, Backbone,connection, photos, viewHtml){
   
+  "use strict";
   var view,
     connectionInstance,
     connectionId,

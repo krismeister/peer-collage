@@ -23,6 +23,9 @@ require.config({
 require([
   'app',
 ], function(App){
+  
+  "use strict";
+  
   // The "app" dependency is passed in as "App"
   console.log('found app');
   App.initialize();

@@ -7,6 +7,7 @@ define([
   'text!templates/photo/list.html'
 ], function($, _, Backbone,Photos, viewHtml){
 
+  "use strict";
     
   photoHistory = Backbone.View.extend({
       el: $("#last-photos"),

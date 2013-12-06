@@ -6,6 +6,7 @@ define([
   'views/master'
 ], function($, _, Backbone, clientView, masterView){
   
+  "use strict";
   var router;
   
   var AppRouter = Backbone.Router.extend({

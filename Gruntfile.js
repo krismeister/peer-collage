@@ -85,6 +85,7 @@ module.exports = function(grunt) {
                     ],
                 smarttabs : true,
                 "-W099": true, // allowed mixed tabs and spaces
+                "-W040" : true //allow the 'this' keyword
                 }
             },
             server: {
