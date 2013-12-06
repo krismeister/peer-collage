@@ -2,8 +2,9 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/Client'
-], function($, _, Backbone, clientView){
+  'views/client',
+  'views/master'
+], function($, _, Backbone, clientView, masterView){
   
   var router;
   
@@ -27,7 +28,11 @@ define([
   
   function onDefaultRoute(){
     console.log('default route');
-    this.navigate('client/1', true);
+    if(Backbone.history.location.href.indexOf('master') > -1){
+      this.navigate('master/1', false);
+    }else{
+      this.navigate('client/1', false);
+    }
   }
   
   function onClientRoute(id){
@@ -37,6 +42,7 @@ define([
   
   function onMasterRoute(id){
     console.log('master route ' + id);
+    masterView.initilize(id);
   }
   
   function getRouter(){

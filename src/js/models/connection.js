@@ -8,7 +8,6 @@ define([
   var instance,
     peer;
     
-  
   var CollageConnection = Backbone.Model.extend({
     defaults: function() {
       return {

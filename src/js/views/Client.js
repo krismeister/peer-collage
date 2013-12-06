@@ -4,8 +4,8 @@ define([
   'underscore',
   'backbone',
   'models/connection',
-  'text!templates/clientView.html'
-], function($, _, Backbone,connection, clientViewHtml){
+  'text!templates/client/main.html'
+], function($, _, Backbone,connection, viewHtml){
   
   var view,
     connectionInstance,
@@ -15,8 +15,7 @@ define([
   ClientView = Backbone.View.extend({
       el: $("body"),
       render: function(){
-        //clientViewHtml
-          this.$el.html( clientViewHtml );
+          this.$el.html( viewHtml );
 
           var canvas = document.getElementById("canvas"),
         	  video = document.getElementById("video"),
