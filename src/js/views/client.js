@@ -52,14 +52,13 @@ define([
     connectionId = id;
     view = new ClientView();
     connectionInstance = connection.getInstance();
-    connectionInstance.on('open',onConnectionOpen);
-    connectionInstance.listenTo(connectionInstance, 'opened', onConnectionOpen);
+    connectionInstance.on("change:open", onConnectionOpen);
     connectionInstance.openConnection();
   }
   
   function onConnectionOpen(){
     console.log('connection is open');
-    connectionInstance.listenTo(connectionInstance, 'connected', onConnectedToPeer);
+    connectionInstance.on("change:ready", onConnectedToPeer);
     connectionInstance.connectToPeer('master-'+connectionId);
   }
   

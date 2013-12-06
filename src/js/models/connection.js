@@ -29,7 +29,8 @@ define([
         key: this.get('peerJsKey'),
         debug:true,
         serialization: 'binary',
-        reliable: false
+        reliable: false,
+        recievedData : null
     };
     
     if(myId){
@@ -46,7 +47,6 @@ define([
   function onOpen(id){
     getInstance().set('connectionName',id);
     getInstance().set('open',true);
-    getInstance().trigger('opened');
   }
 
   function connectToPeer(peerId){
@@ -63,11 +63,10 @@ define([
     getInstance().set('connection',conn);
     getInstance().set('ready',true);
     getInstance().get('connection').on('data', onDataRecieved);
-    getInstance().trigger('connected');
   }
 
   function onDataRecieved(data){
-	  getInstance().trigger('dataRecieved',data);
+    getInstance().set('recievedData',data);
   }
 
   function send(data){

@@ -23,22 +23,23 @@ define([
     connectionId = id;
     view = new MasterView();
     connectionInstance = connection.getInstance();
-    connectionInstance.on('open',onConnectionOpen);
-    connectionInstance.listenTo(connectionInstance, 'opened', onConnectionOpen);
+    connectionInstance.on("change:open", onConnectionOpen);
     connectionInstance.openConnection('master-'+connectionId);
   }
   
   function onConnectionOpen(){
-    console.log('connection is open');
-    view.render();
-    connectionInstance.listenTo(connectionInstance, 'dataRecieved', onDataRecieved);
+    connectionInstance.on("change:ready", onConnectionReady);
   }
   
-  function onDataRecieved(data){
-    console.log('connection is open');
+  function onConnectionReady(){
+    view.render();
+    connectionInstance.on("change:recievedData", onDataRecieved);
+  }
+  
+  function onDataRecieved(){
+    var data = connectionInstance.get('recievedData');
     var img = "<img src='"+ data +"' + />";
     $('#imgContainer').append(img);
-    
   }
   
   return {
