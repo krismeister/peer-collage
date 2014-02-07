@@ -38,7 +38,8 @@
 		var PeerServer = require('peer').PeerServer;
 		var server = new PeerServer({ 
 				port: 9000 ,
-				debug: true
+				debug: true,
+				key:'abc123'
 			});	
 			
 		// var sys = require('sys');

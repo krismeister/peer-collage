@@ -5,8 +5,9 @@ define([
   'backbone',
   'models/connection',
   'text!templates/master/main.html',
-  'views/tilePhotos'
-], function($, _, Backbone,connection, viewHtml, TilePhotosView){
+  'views/tilePhotos',
+  'views/collagedPhotos'
+], function($, _, Backbone,connection, viewHtml, TilePhotosView, CollagedPhotosView){
   
   "use strict";
   var view,
@@ -37,6 +38,7 @@ define([
   function onConnectionReady(){
     view.render();
     photosView = new TilePhotosView();
+//    photosView = new CollagedPhotosView();
   }
   
   return {

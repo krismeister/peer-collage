@@ -28,10 +28,9 @@ define([
       },
       photoShoot: function(e){
         _.delay(this.sendPhoto, 500);
-        _.delay(this.sendPhoto, 1500);
         _.delay(this.sendPhoto, 2500);
-        _.delay(this.sendPhoto, 3500);
         _.delay(this.sendPhoto, 4500);
+        _.delay(this.sendPhoto, 6500);
       },
       sendPhoto: function( event ){
          context2d.drawImage(video, 0, 0, 640, 480);

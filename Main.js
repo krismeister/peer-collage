@@ -1,7 +1,7 @@
 (function () {
 	"use strict";
 	
-	var peerToPeerCollage = require('./server/PeerToPeerCollage');
+	var peerToPeerCollage = require('./build/app');
 
 	function init(){
 		peerToPeerCollage.init();

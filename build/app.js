@@ -7,7 +7,7 @@
 		command;
 
 	function init(){
-		console.log('Initing Peer To Peer Collage');
+		console.log('Initing Peer to Peer testing');
 	
 		//grab command line vars.
 		command = process.argv[2];

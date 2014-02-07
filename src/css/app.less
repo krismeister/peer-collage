@@ -46,6 +46,28 @@ nav{
  }
 }
 
+#collaged-photos{
+  display:none;
+}
+#collaged-photos{
+  background:transparent url(../images/bg.jpg) 50% 50% no-repeat;
+  background-size:cover;
+  height:100%;
+  image{
+ 	 position:relative;
+    .transition(all);
+  }
+  image.in-fx{
+    .transform(scale(2,2));
+    .opacity();
+    z-index:2;
+  }
+  svg{
+    width:100%;
+    height:100%;
+  }
+}
+
 .camera-view nav{
 	bottom:0px;
 }

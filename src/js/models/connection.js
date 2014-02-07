@@ -16,8 +16,10 @@ define([
         connectionName : "Unknown",
         open :false,
         ready:false,
-        peerJsKey : 'd1ex4hq2p3bit3xr',
-        peerJsUrl : window.location.protocol + "//" + window.location.hostname + ':9000',
+        peerJsKey : 'abc123',
+        peerJsUrl : window.location.hostname,
+        peerJsPort : '9000',
+        //peerJsUrl : window.location.protocol + "//" + window.location.hostname + ':9000',
         connection : null
       };
     },
@@ -31,6 +33,8 @@ define([
         key: this.get('peerJsKey'),
         debug:true,
         serialization: 'binary',
+        host: this.get('peerJsUrl'),
+        port: this.get('peerJsPort'),
         reliable: false,
         recievedData : null
     };
