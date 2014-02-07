@@ -30,9 +30,9 @@ define([
   function onDefaultRoute(){
     console.log('default route');
     if(Backbone.history.location.href.indexOf('master') > -1){
-      this.navigate('master/1', false);
+      this.navigate('master/1', true);
     }else{
-      this.navigate('client/1', false);
+      this.navigate('client/1', true);
     }
   }
   

@@ -33,7 +33,7 @@ define([
         _.delay(this.sendPhoto, 6500);
       },
       sendPhoto: function( event ){
-         context2d.drawImage(video, 0, 0, 640, 480);
+         context2d.drawImage(video, 0, 0, 320, 240);
          //		var imageData = context.getImageData( 0, 0, 640, 480);
          var imageUrl = canvas.toDataURL();
          connectionInstance.send(imageUrl);
