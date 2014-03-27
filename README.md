@@ -27,15 +27,13 @@ npm install //Install npm packages
 Starting the Servers
 --------------------
 
+Start the Peer.js server by running this command from the terminal:
 
-``
-node main startPeerJs //Start the Peer.js server by running this command from the terminal:
-``
+``node main startPeerJs ``
 
+Then open another terminal and start the http server by running this command.
 
-``
-node main start //Then open another terminal and start the http server by running this command.
-``
+``node main start``
 
 
 license
